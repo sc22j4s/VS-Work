@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 
-int main( int argc, char **argv ) {
+int main( int argc, char **argv ) { //strtok is like string.split !!! 
 
   // command line arguments
   printf("No input file name given. Exiting.\n");
