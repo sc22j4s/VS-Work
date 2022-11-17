@@ -20,7 +20,7 @@ int main( int argc, char **argv ) {
   printf("Correcting student %d grade %d\n", id,grade ); // requires student id and relevant grade
 
   // compute averages
-  printf("Computing averages.\n");
+  pvrintf("Computing averages.\n");
 
   // writing to file
   printf("Output file. Opening.\n");
