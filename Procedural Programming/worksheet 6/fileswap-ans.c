@@ -36,7 +36,7 @@ int main( int argc, char *argv[] ) {
   }
 
   // open input file for reading
-  fp = fopen( argv[1], "r");
+  fp = fopen( argv[1], "r"fg-);
 
   // check file exists or can be opened
   if( fp == NULL ) {
@@ -48,7 +48,9 @@ int main( int argc, char *argv[] ) {
   for( i=0; i<nrow; i++ ) {
     for( j=0; j<ncol; j++ ) {
       fscanf( fp, "%i", &(mat[i][j]) );
+      printf("%i, ", mat[i][j]); 
     }
+    printf("\n"); 
   }
 
   // close input file
