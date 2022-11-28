@@ -36,7 +36,7 @@ int main( int argc, char *argv[] ) {
   }
 
   // open input file for reading
-  fp = fopen( argv[1], "r"fg-);
+  fp = fopen( argv[1], "r");
 
   // check file exists or can be opened
   if( fp == NULL ) {

@@ -1,6 +1,6 @@
 """
 Please write your name
-@author:
+@author: James Schwar
 
 """
 
@@ -12,24 +12,58 @@ import csv
 
 class Leopard:
     def __init__(self, filepath: str) -> None:
+        self.filepath = filepath
         
+
+        print(filepath)
+        # check if file is locatable
         try:
             file = open(filepath, 'rb')
         except FileNotFoundError:
-            print("file not found")
+            print("file not found.")
 
         
 
-        with open(filepath) as file:
+        # check if file is empty
+        """
+        try:
+            test_reader = csv.reader(file)
+
+        except:
+            print("asd")
+        """
+        
+                
+
+
+       
+   
+
+        
+
+        # begin reading from csv file
+        with open(filepath, 'r') as file:
             reader = csv.reader(file)
             # iterate through line
+            header.append(file.readline())
+            # read every row into data list
+            for row in reader:
+                data.append(reader)
+            # first element in list is removed (is header)
+            del data[0]
+
+            print(data)
+
+
+
+        
 
     def get_header(self) -> list:
-        # delete pass and this commentto write your code
+        #return header
         pass
 
     def get_data(self) -> list:
-        # delete pass and this commentto write your code
+        #return data
         pass
 
     def stats(self) -> dict:
@@ -65,6 +99,7 @@ if __name__ == "__main__":
     print()
 
     # test fide2021.csv
+    """
     test2 = Leopard("fide2021.csv")
     print(test2.get_header())
     print(test.get_data())
@@ -72,11 +107,16 @@ if __name__ == "__main__":
     print(stats2)
     test2.html_stats(stats2, "fide2021.html")
     print()
+    """
+    
 
     # test student.csv
+    """
     test3 = Leopard("student.csv")
     print(test3.get_header())
     print(test.get_data())
     stats3 = test3.stats()
     print(stats3)
     test3.html_stats(stats3, "student.html")
+    """
+    
