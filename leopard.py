@@ -13,6 +13,8 @@ import csv
 class Leopard:
     def __init__(self, filepath: str) -> None:
         self.filepath = filepath
+        self.header = header
+        self.data = data
         
 
         print(filepath)
@@ -33,38 +35,28 @@ class Leopard:
             print("asd")
         """
         
-                
-
-
-       
-   
-
-        
+        header = []
+        data = []
 
         # begin reading from csv file
         with open(filepath, 'r') as file:
             reader = csv.reader(file)
-            # iterate through line
+            # read first line into header list
             header.append(file.readline())
-            # read every row into data list
+            # read remaining rows into data list
             for row in reader:
-                data.append(reader)
-            # first element in list is removed (is header)
-            del data[0]
+                data.append(row)
 
-            print(data)
 
 
 
         
 
     def get_header(self) -> list:
-        #return header
-        pass
+        return self.header
 
     def get_data(self) -> list:
-        #return data
-        pass
+        return self.data
 
     def stats(self) -> dict:
         # delete pass and this comment to write your code
