@@ -41,9 +41,18 @@ class Leopard:
             reader = csv.reader(file)
             # read first line into header list
             header.append(file.readline())
+<<<<<<< Updated upstream
             # read remaining rows into data list
             for row in reader:
                 data.append(row)
+=======
+            # read every row into data list
+            i = 1
+            for enumerate(i, row) in reader:
+                data.append(reader)
+            # first element in list is removed (is header)
+            del data[0]
+>>>>>>> Stashed changes
 
 
 
