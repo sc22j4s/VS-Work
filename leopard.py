@@ -13,8 +13,6 @@ import csv
 class Leopard:
     def __init__(self, filepath: str) -> None:
         self.filepath = filepath
-        self.header = header
-        self.data = data
         
 
         print(filepath)
@@ -35,8 +33,8 @@ class Leopard:
             print("asd")
         """
         
-        header = []
-        data = []
+        self.header = []
+        self.data = []
 
         # begin reading from csv file
         with open(filepath, 'r') as file:
@@ -53,14 +51,59 @@ class Leopard:
         
 
     def get_header(self) -> list:
-        return self.header
+        if len(self.header) > 0: 
+            return self.header
+        else:
+            return
 
     def get_data(self) -> list:
-        return self.data
+        if len(self.data) > 0:
+            return self.data
+        else:
+            return
 
     def stats(self) -> dict:
-        # delete pass and this comment to write your code
-        pass
+        cols = [] 
+        for x in cols:
+            cols.append(x)
+        stats = {}
+
+        """
+            1. make entire stats dict to write smaller dicts to 
+            2. number of smaller dicts unknown, setup iterative struct for **column**
+            
+            read value and check if it is number. 
+                if string, iterate to next column 
+                if 'NA', '-', or '', ignore, (valdation bool )
+            3. define static count mean min max dicts within 
+            4. define sum, count, min, max vars 
+            
+            
+        """
+        dict_list = []
+        isNumber = True
+        for enumerate i, x in enumerate(self.data):
+            #setup structure for reading in 
+            dict_title = self.header[i]
+            # var = sum(int(i) for i in line)
+
+
+            try:
+                mean = 0
+                sum = 0 
+                min = 0
+                max = 0
+            except ValueError:
+                #skip
+
+            if 1 > 2: 
+
+                
+
+            
+
+        # number of entries in header 
+        
 
     def html_stats(self, stats: dict, filepath: str) -> None:
         # delete pass and this comment to write your code
