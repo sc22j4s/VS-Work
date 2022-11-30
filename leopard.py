@@ -43,8 +43,6 @@ class Leopard:
             self.header = line.split(',').copy()
  
 
-
-
             # check for empty file
             if(self.header[0] == ""):
                 print("empty file.")
@@ -54,11 +52,6 @@ class Leopard:
             for row in reader:
                 #line = row.split(',')
                 self.data.append(row)
-
-
-
-
-        
 
     def get_header(self) -> list:
         print("\nHEADER\n")
@@ -84,14 +77,12 @@ class Leopard:
             2. number of smaller dicts (columns) unknown, setup iterative struct per column
 
             --iterating data top to down allgood--
-            
-            read value and check if it is number.S 
-                **one-time check** if string, iterate to next column 
+
+            read value and check if it is number.
+                **one-time check** if string, iterate to next column
                 if 'NA', '-', or '', ignore, (valdation bool )
-            3. define static count mean min max dicts within 
-            4. define sum, count, min, max vars 
-            
-            
+            3. define static count mean min max dicts within
+            4. define sum, count, min, max vars
         """
         dict_list = []
 
@@ -100,30 +91,61 @@ class Leopard:
         # iterate through each column
         for i in range(len(self.header)):
 
-            is_valid = True
-            # check if data item is an integer
-            print(self.data[0][i])
+            is_valid_column = True
+            # check if column contains integer values
+            # must also check if the item is not redundant
+
+            # todo: cast as int!!!
+            print(isinstance(int(self.data[0][i]), int))
             if (not isinstance(self.data[0][i], int)) and self.data[0][i] != 'NA' and self.data[0][i] != '' and self.data[0][i] != '-':
+                is_valid_column = False
+                print("{0} is not integer. skipping {1}", self.data[0][i], self.header[i])
 
-                is_valid = False
-                print("{0} is not integer. skipping", self.header[i])
-            
-            if is_integer:
-                is_valid = True
 
-                if self.data[0][i] == 'NA' and self.data[0][i] == '' and self.data[0][i] == '-':
-                    is_valid = False
-                
-                if is_valid:
+            if is_valid_column:
+                # iterate through column
+                    dict_title = self.header[i]
+                    sum = 0
+                    min = 0
+                    max = 0
+                    count = 0
+                    
+
                     for k in range(len(self.data)):
-                        print(self.data[k][i])
-                # ignore data entry 
-                
+                        item = self.data[k][i]
+                        # skip missing data item
+                        if item == 'NA' and item == '' and item == '-':
+                            is_integer = False
+                            
+                        if is_integer:
+                            count = count + 1
+                            sum = sum + item
 
-                
+                            if item < min:
+                                min = item
+                            if item > max: 
+                                max = item
+                    
+                    # calculate average, rounded 2 d.p
+                    mean = sum / count
+                    mean.round(mean,2)
 
+
+
+
+                    # setup dictionary 
+
+                    dict_title = {
+                        'count': count,
+                        'mean': mean,   
+                        'min': min,
+                        'max': max
+                    }
+                    stats.append(dict_title.copy())
+
+                            
                 
-                
+        
         return dict_stats
             
 
