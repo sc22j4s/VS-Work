@@ -172,7 +172,7 @@ class Leopard:
 
             for i in stats: 
                 for k in i: 
-                    x=1
+                    
                     
 
 
