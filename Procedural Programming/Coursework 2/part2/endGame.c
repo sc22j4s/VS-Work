@@ -27,3 +27,16 @@ int drawGame( Game *game ) {
   return 0; // continue
 }
 
+int testRows(Game *game, char symbol){
+  int symbolCount = 0;
+  for(int i = 0; i < 3; i++){
+    if(game->board == symbol){
+      symbolCount++;
+    } 
+  }
+
+  if(symbolCount == 3){
+    return 1;
+  }
+}
+

@@ -10,11 +10,21 @@
  */
 
 Game *initGame( int boardSize, int winLength ) {
-
+  printf("initgame");
   Game *game;
 
+  game->board = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
+  game->boardSize = 3;
+  game->winLength = 3;
+  game->maxTurns = 9;
+  game->turns = 0;
+
   // for incorrect boardSize or winLength you should return a NULL pointer
-  printf("Incorrect parameter values for board size or win length. Exiting\n");
+  if(boardSize != 3 || winLength != 3){
+    printf("Incorrect parameter values for board size or win length. Exiting\n");
+    return;
+  }
+  
 
   // allocate the Game data structure
   // intialise the Game data structure values 

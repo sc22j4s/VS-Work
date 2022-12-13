@@ -27,7 +27,7 @@ int main( int argc, char **argv ) { //strtok is like string.split !!!
   // check if file exists or can be opened 
   if(fileread == NULL){
     printf("Input file does not exist. Exiting.\n");
-    return -1; 
+    return -1;
   }
   
   // statically allocated 2d array 

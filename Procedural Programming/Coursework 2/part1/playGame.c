@@ -20,13 +20,37 @@ void playGame( Game *game ) {
   
   // Your game should be controlled by an outer loop
   // Each pass through the loop is one completed move by a player
+
+  typedef enum { false, true } bool;
+
+  bool gameOver = false;
+  bool validInput = false;
+  int rowInput; 
+  int colInput;
+
+  while(gameOver == false){
+    
+
+    do{
+      printf("Player %c: Enter your move as row column values:\n",symbols[player]); // use this to request the player moved
+      scanf("%i %i", rowInput, colInput);
+      
+      // check if inputs are within range of board (1-3)
+      if(rowInput > 0 && rowInput < 4 && colInput > 0 && colInput < 4){
+        validInput = true; 
+      }
+      // input values invalid, shold be rejected
+      else{
+        printf("Move rejected. Please try again\n");
+      }
+    }while(validInput == false);
+  }
   
    
   // Request a move from the next player and check it is valid (an unused square within the board)
-  printf("Player %c: Enter your move as row column values:\n",symbols[player]); // use this to request the player move
 
   // If the move is invalid you should repeat the request for the current player
-  printf("Move rejected. Please try again\n"); // use this message if move cannot be made. You must repeat the request for a move
+   // use this message if move cannot be made. You must repeat the request for a move
 
   // If the move is valid update the board
   
