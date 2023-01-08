@@ -11,9 +11,14 @@
 
 Game *initGame( int boardSize, int winLength ) {
   printf("initgame");
-  Game *game;
+  Game *game = malloc(sizeof(Game));
 
-  game->board = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
+  //game->board = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
+  for(int i = 0; i < 3; i++){
+    for(int k = 0; k < 3; k++){
+      game->board[i][k] = '.';
+    }
+  }
   game->boardSize = 3;
   game->winLength = 3;
   game->maxTurns = 9;
@@ -22,7 +27,7 @@ Game *initGame( int boardSize, int winLength ) {
   // for incorrect boardSize or winLength you should return a NULL pointer
   if(boardSize != 3 || winLength != 3){
     printf("Incorrect parameter values for board size or win length. Exiting\n");
-    return;
+    return NULL;
   }
   
 

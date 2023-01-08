@@ -9,9 +9,9 @@
  * Intialise game data for a new game
  */
 
-Game *initGame( int boardSize, int winLength ) {
+Game initGame( int boardSize, int winLength ) {
   printf("initgame");
-  Game *game;
+  
 
   game->board = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
   game->boardSize = 3;
@@ -29,7 +29,9 @@ Game *initGame( int boardSize, int winLength ) {
   // allocate the Game data structure
   // intialise the Game data structure values 
   // board values should be set to '.' (unused location)
-  
+  for(int i = 0; i < sizeof())
+
+
   return game;
 }
 

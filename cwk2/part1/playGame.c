@@ -35,16 +35,22 @@ void playGame( Game *game ) {
       printf("Player %c: Enter your move as row column values:\n",symbols[player]); // use this to request the player moved
       scanf("%i %i", rowInput, colInput);
       
-      // check if inputs are within range of board (1-3)
-      if(rowInput > 0 && rowInput < 4 && colInput > 0 && colInput < 4){
+      // check if inputs are within range of board (0-2)
+      if(rowInput > -1 && rowInput < 3 && colInput > -1 && colInput < 3){
+        printf("asda");
         validInput = true; 
       }
-      // input values invalid, shold be rejected
+      // input values invalid, should be rejected
       else{
         printf("Move rejected. Please try again\n");
       }
     }while(validInput == false);
+
+    // update grid
+    game->board[rowInput][colInput] = symbols[player];
   }
+
+
   
    
   // Request a move from the next player and check it is valid (an unused square within the board)

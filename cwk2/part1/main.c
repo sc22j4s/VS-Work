@@ -6,23 +6,20 @@
 #include "initGame.h"
 #include "endGame.h"
 #include "playGame.h"
-#include "initGame.c"
-#include "playGame.c"
 
 /*
  * main function: program entry point
  */
 
-int main( int argc, char *argv[] ) {
+int main() {
 
   Game *game; // pointer for the game structure
 
   // allocate memory and assign starting values to the structure
   
   printf("player");
-
+  game = initGame(3,3);
   // play a full game
-  initGame(3, 3); 
   playGame(game); 
 
 

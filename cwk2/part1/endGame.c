@@ -29,14 +29,17 @@ int drawGame( Game *game ) {
 
   // return 1(true) if game is drawn, 0(false) otherwise
 
-
-  if(testRows(game, symbol) == 0 && testColumns(game, symbol) == 0 && testDiag(game, symbol) == 0){
-    return 1; 
+  /*
+  if turns equals maxturns
+  */
+  if(game->maxTurns == game->turns){
+    return 1;
   }
-  return 0;
+
+  return 0; // continue
   
 }
-}
+
 
 int testRows(Game *game, char symbol){
   int symbolCount;
@@ -74,12 +77,11 @@ int testRows(Game *game, char symbol){
 
   
   return 0;
-} }
+} 
+}
   }
 
-  // 
-  return 0;
-}
+
 
 int testColumns(Game *game, char symbol){
   int symbolCount;
@@ -105,6 +107,6 @@ int testColumns(Game *game, char symbol){
   return 0;
 }
 int testDiag(Game *game, char symbol){
-  for (int i = )
+
 }
 
